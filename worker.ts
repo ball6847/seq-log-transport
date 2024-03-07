@@ -1,25 +1,24 @@
 import { Logger } from "seq-logging";
 import { Tail } from "tail";
-import { kv } from "./kv.ts";
 
 export async function startWorker(file: string, logger: Logger) {
-  const tail = new Tail(file, { fromBeginning: true });
+  const tail = new Tail(file, { fromBeginning: false });
 
   // resume from the last offset stored in KV
-  const key = file.substring(1).split("/");
-  const result = await kv.get<number>(key.concat("offset"));
-  const offset = result.value ?? -1;
+  // const key = file.substring(1).split("/");
+  // const result = await kv.get<number>(key.concat("offset"));
+  // const offset = result.value ?? -1;
 
-  console.log(`${file} will be started from line`, offset);
+  // console.log(`${file} will be started from line`, offset);
 
   let i = 0;
 
   tail.on("line", (line: string) => {
     // skip lines until we reach the offset
-    if (i <= offset) {
-      i++;
-      return;
-    }
+    // if (i <= offset) {
+    //   i++;
+    //   return;
+    // }
 
     // process the log line
     try {
@@ -42,8 +41,8 @@ export async function startWorker(file: string, logger: Logger) {
     }
 
     // keep track of the offset
-    kv.set(key.concat("offset"), i);
-    i++;
+    // kv.set(key.concat("offset"), i);
+    // i++;
   });
 
   tail.on("error", (error: Error | string) => {
