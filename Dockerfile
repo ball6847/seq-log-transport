@@ -8,4 +8,4 @@ RUN mkdir /database && \
 
 VOLUME /database
 ENTRYPOINT []
-CMD ["seq-log-transport"]
+CMD ["/usr/local/bin/seq-log-transport"]
