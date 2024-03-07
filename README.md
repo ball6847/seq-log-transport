@@ -4,7 +4,7 @@ Watch and ship json structured log files to seq server
 
 ## Getting started
 
-Deno must be installed on system
+Deno must be installed on the system
 
 ```sh
 deno install --unstable-kv --allow-net --allow-read --allow-write --allow-sys -n seq-log-transport https://cdn.jsdelivr.net/gh/ball6847/seq-log-transport@b78b186/main.ts
@@ -43,4 +43,7 @@ The cli requires each log entry to contain the following field
 
 Anything else will be passed as log properties that can be used for `messageTemplate` or can be used later to query the logs on Seq admin ui
 
-TODO: implement field mappings for `datetime`, `level` and `message`, as this might not always be in of our control.
+## TODO
+
+- [ ] implement field mappings for `datetime`, `level` and `message`, as this might not always be in of our control.
+- [ ] graceful shutdown to stop watching and flush all pending messages to seq before exit
