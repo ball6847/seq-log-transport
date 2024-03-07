@@ -7,7 +7,7 @@ Watch and ship json structured log files to seq server
 Deno must be installed on the system
 
 ```sh
-deno install --unstable-kv --allow-net --allow-read --allow-write --allow-sys -n seq-log-transport https://cdn.jsdelivr.net/gh/ball6847/seq-log-transport@b78b186/main.ts
+deno install --unstable-kv --allow-env --allow-net --allow-read --allow-write --allow-sys -n seq-log-transport https://cdn.jsdelivr.net/gh/ball6847/seq-log-transport@b78b186/main.ts
 ```
 
 Create a config file
