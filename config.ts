@@ -1,5 +1,5 @@
-import yaml from "npm:yaml@2.4.1";
-import { z } from "npm:zod@3.0.0";
+import yaml from "yaml";
+import { z } from "zod";
 
 const schema = z.object({
   sources: z.array(z.string()).min(1),

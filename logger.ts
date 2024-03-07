@@ -1,4 +1,4 @@
-import { Logger } from "npm:seq-logging";
+import { Logger } from "seq-logging";
 import { Config } from "./config.ts";
 
 export function getLogger(config: Config) {

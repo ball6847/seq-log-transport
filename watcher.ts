@@ -1,5 +1,5 @@
-import fg from "npm:fast-glob@3.3.2";
-import { Logger } from "npm:seq-logging";
+import fg from "fast-glob";
+import { Logger } from "seq-logging";
 import { Config } from "./config.ts";
 import { startWorker } from "./worker.ts";
 

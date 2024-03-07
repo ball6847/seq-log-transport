@@ -1,5 +1,5 @@
-import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.3/command/mod.ts";
-import { to } from "npm:await-to-js@3.0.0";
+import { to } from "await-to-js";
+import { Command } from "cliffy";
 import { read } from "./config.ts";
 import { getLogger } from "./logger.ts";
 import { watch } from "./watcher.ts";

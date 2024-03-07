@@ -1,5 +1,5 @@
-import { Logger } from "npm:seq-logging";
-import { Tail } from "npm:tail";
+import { Logger } from "seq-logging";
+import { Tail } from "tail";
 import { kv } from "./kv.ts";
 
 export async function startWorker(file: string, logger: Logger) {
