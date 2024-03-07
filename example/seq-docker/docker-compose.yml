@@ -1,0 +1,18 @@
+version: '3'
+
+# for password, see https://blog.datalust.co/setting-an-initial-password-when-deploying-seq-to-docker/
+services:
+  seq:
+    image: datalust/seq:2024.1
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: Y
+      SEQ_FIRSTRUN_ADMINPASSWORDHASH: QA2VIStWkkPz8+j2O9YiyEDBeyr59D0MQFH4OF3e9FHYBwGibSrhfqDuVSSCXMBHSx7bfnJ/L6+tCNVSkIHDnReOGHoIqdvMRPZxdoaAcTSY
+    volumes:
+      - seq-data:/data
+    ports:
+      - 80:80
+      - 5341:5341
+
+volumes:
+  seq-data:
