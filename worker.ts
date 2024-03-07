@@ -1,7 +1,7 @@
 import { Logger } from "seq-logging";
 import { Tail } from "tail";
 
-export async function startWorker(file: string, logger: Logger) {
+export function startWorker(file: string, logger: Logger) {
   const tail = new Tail(file, { fromBeginning: false });
 
   // resume from the last offset stored in KV
@@ -11,7 +11,7 @@ export async function startWorker(file: string, logger: Logger) {
 
   // console.log(`${file} will be started from line`, offset);
 
-  let i = 0;
+  // let i = 0;
 
   tail.on("line", (line: string) => {
     // skip lines until we reach the offset
