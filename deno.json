@@ -6,9 +6,11 @@
     "seq-logging": "npm:seq-logging@1.0.0",
     "await-to-js": "npm:await-to-js@3.0.0",
     "fast-glob": "npm:fast-glob@3.3.2",
-    "tail": "npm:tail@2.2.0"
+    "tail": "npm:tail@2.2.6"
   },
   "tasks": {
+    "lint": "deno lint",
+    "check": "deno check ./main.ts",
     "dev": "deno run --unstable-hmr --unstable-kv --allow-env --allow-net --allow-read --allow-write --allow-sys main.ts",
     "start": "deno run --unstable-kv --allow-env --allow-net --allow-read --allow-write --allow-sys main.ts"
   }

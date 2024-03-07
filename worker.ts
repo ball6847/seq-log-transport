@@ -46,9 +46,9 @@ export async function startWorker(file: string, logger: Logger) {
     i++;
   });
 
-  tail.on("error", (error: Error) => {
+  tail.on("error", (error: Error | string) => {
     // stop watching if the file got deleted
-    if (error.message.includes("ENOENT")) {
+    if (typeof error === "string" && error.includes("ENOENT")) {
       console.log(`stop watching ${file} because it was deleted`);
       tail.unwatch();
       return;

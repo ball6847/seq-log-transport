@@ -13,6 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: "1.41.1"
+
+      - name: Running lint
+        run: deno task lint
+
+      - name: Running check
+        run: deno task check
+
       # https://github.com/marketplace/actions/push-to-ghcr
       - name: Build and publish a Docker image for ${{ github.repository }}
         uses: macbre/push-to-ghcr@master
