@@ -4,22 +4,7 @@ import { Tail } from "tail";
 export function startWorker(file: string, logger: Logger) {
   const tail = new Tail(file, { fromBeginning: false });
 
-  // resume from the last offset stored in KV
-  // const key = file.substring(1).split("/");
-  // const result = await kv.get<number>(key.concat("offset"));
-  // const offset = result.value ?? -1;
-
-  // console.log(`${file} will be started from line`, offset);
-
-  // let i = 0;
-
   tail.on("line", (line: string) => {
-    // skip lines until we reach the offset
-    // if (i <= offset) {
-    //   i++;
-    //   return;
-    // }
-
     // process the log line
     try {
       const log = JSON.parse(line);
@@ -39,10 +24,6 @@ export function startWorker(file: string, logger: Logger) {
     } catch (error) {
       console.error("log processing error", error);
     }
-
-    // keep track of the offset
-    // kv.set(key.concat("offset"), i);
-    // i++;
   });
 
   tail.on("error", (error: Error | string) => {
